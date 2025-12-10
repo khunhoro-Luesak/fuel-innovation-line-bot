@@ -507,7 +507,7 @@ function buildWelcomeFlex() {
                 action: {
                   type: "uri",
                   label: "🏢 เกี่ยวกับเรา (Company Profile)",
-                  uri: companyUrl,
+                  uri: COMPANY_PROFILE_URL,
                 },
               },
               {
