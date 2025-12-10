@@ -28,7 +28,7 @@ const client = new Client(config);
 const PORT = process.env.PORT || 3000;
 const SPEC_URL = process.env.SPEC_URL || "";
 const QUOTE_URL = process.env.QUOTE_URL || "";
-const COMPANY_PROFILE_URL = process.env.COMPANY_PROFILE_URL || "";
+const COMPANY_PROFILE_URL = process.env.COMPANY_PROFILE_URL || SPEC_URL; // <= ตัวนี้สำคัญ
 const ADMIN_LINE_USER_ID = process.env.ADMIN_LINE_USER_ID || "";
 
 // ===========================================================
@@ -389,14 +389,15 @@ function buildWelcomeFlex() {
             contents: [
               {
                 type: "image",
-                url:
-                  "https://raw.githubusercontent.com/khunhoro-Luesak/fuel-innovation-assets/main/logo-orange-gradient.png",
+                url: "https://raw.githubusercontent.com/khunhoro-Luesak/fuel-innovation-assets/main/logo-orange-gradient.png",
                 size: "md",
                 aspectMode: "fit",
                 margin: "none",
               },
             ],
           },
+
+          // Title
           {
             type: "text",
             text: "Fuel Innovation Co., Ltd.",
@@ -406,7 +407,10 @@ function buildWelcomeFlex() {
             align: "center",
             margin: "md",
           },
+
           { type: "separator", color: "#2155B5", margin: "md" },
+
+          // Intro Text
           {
             type: "text",
             text:
@@ -417,6 +421,8 @@ function buildWelcomeFlex() {
             align: "center",
             margin: "md",
           },
+
+          // Suitable for
           {
             type: "box",
             layout: "vertical",
@@ -460,6 +466,7 @@ function buildWelcomeFlex() {
               },
             ],
           },
+
           {
             type: "text",
             text: "🧭 เลือกเมนูด้านล่างเพื่อเริ่มต้นใช้งาน",
@@ -469,24 +476,30 @@ function buildWelcomeFlex() {
             align: "center",
             margin: "md",
           },
+
+          // ============================
+          // ⭐ MENU BUTTONS
+          // ============================
           {
             type: "box",
             layout: "vertical",
             spacing: "sm",
             margin: "md",
             contents: [
-              // 🏢 เกี่ยวกับเรา → Company Profile
+              // 🏢 เกี่ยวกับเรา → Company Profile (ลิงก์ถูกต้อง 100%)
               {
                 type: "button",
                 style: "primary",
-                color: "#38BDF8", // ฟ้าอมเขียว แยกจากสีอื่น
+                color: "#38BDF8",
                 height: "sm",
                 action: {
                   type: "uri",
                   label: "🏢 เกี่ยวกับเรา",
-                  uri: COMPANY_PROFILE_URL || SPEC_URL,
+                  uri: COMPANY_PROFILE_URL, // ⬅⬅⬅ ใช้เฉพาะ Company Profile เท่านั้น
                 },
               },
+
+              // 📄 Product Spec Sheet
               {
                 type: "button",
                 style: "primary",
@@ -498,6 +511,8 @@ function buildWelcomeFlex() {
                   uri: SPEC_URL,
                 },
               },
+
+              // 🧾 Quotation
               {
                 type: "button",
                 style: "primary",
@@ -509,6 +524,8 @@ function buildWelcomeFlex() {
                   uri: QUOTE_URL,
                 },
               },
+
+              // Calculator
               {
                 type: "button",
                 style: "primary",
@@ -520,6 +537,8 @@ function buildWelcomeFlex() {
                   text: "คำนวณความประหยัด",
                 },
               },
+
+              // FAQ
               {
                 type: "button",
                 style: "primary",
@@ -531,6 +550,8 @@ function buildWelcomeFlex() {
                   text: "ถาม–ตอบ",
                 },
               },
+
+              // Sales Contact
               {
                 type: "button",
                 style: "primary",
@@ -544,6 +565,8 @@ function buildWelcomeFlex() {
               },
             ],
           },
+
+          // Footer Message
           {
             type: "box",
             layout: "vertical",
